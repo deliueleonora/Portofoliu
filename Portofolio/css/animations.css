@@ -1,0 +1,117 @@
+/* === LOGO REVEAL === */
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* === HERO TEXT ANIMATIONS === */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* === MAGNETIC HOVER EFFECT === */
+@keyframes magneticPull {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+  }
+}
+
+/* === GRADIENT ANIMATION === */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* === UNDERLINE REVEAL === */
+@keyframes underlineGrow {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* === BLUR IN EFFECT === */
+@keyframes blurIn {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* === STAGGER REVEAL === */
+.hero-line {
+  opacity: 0;
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-line:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.hero-line:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+
+
+
+
+/* =========================
+   PROJECT FADE IN
+========================= */
+
+.project-hero,
+.project-video,
+.project-info,
+.project-process,
+.project-outro {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

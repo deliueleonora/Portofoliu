@@ -1,0 +1,243 @@
+/* =========================================================
+   FRAMESHIFT — page specific
+========================================================= */
+
+.page-frameshift .frameshift-shell{
+  padding-top: 80px;
+  margin: 0;
+  max-width: none;
+}
+
+
+/* ---------- HERO ---------- */
+
+.page-frameshift .frameshift-hero{
+  display: grid;
+
+  grid-template-columns: 420px 1fr;
+
+  gap: 120px;
+  align-items: start;
+
+  margin-bottom: 140px;
+  margin-top: 40px;
+}
+
+
+.page-frameshift .frameshift-title{
+  margin: 0 0 18px 0;
+
+  font-family: var(--font-headings);
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 700;
+
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+
+  color: rgba(232,220,196,0.92);
+}
+
+
+.page-frameshift .frameshift-meta{
+  font-family: var(--font-main);
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: rgba(232,220,196,0.55);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+/* ---------- TEXT ---------- */
+
+.page-frameshift .frameshift-middle{
+  max-width: 520px;
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+
+
+.page-frameshift .frameshift-text{
+  font-family: var(--font-main);
+  color: rgba(232,220,196,0.82);
+  max-width: 520px;
+  margin-left: auto;
+}
+
+.page-frameshift .frameshift-text p{
+  margin: 0 0 14px 0;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+
+
+/* ---------- LINKS ---------- */
+
+.page-frameshift .frameshift-links{
+  margin-top: 38px;
+}
+
+.page-frameshift .frameshift-links a{
+  font-family: var(--font-main);
+  font-size: 11px;
+
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: var(--accent-secondary);
+  opacity: 0.85;
+
+  text-decoration: none;
+}
+
+
+
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.page-frameshift .frameshift-section{
+  margin-top: 60px;
+}
+
+.page-frameshift .frameshift-project{
+
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+
+  margin-bottom: 120px;
+
+}
+
+.page-frameshift .frameshift-project img{
+
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(232,220,196,0.14);
+
+}
+
+
+
+
+
+/* =========================================================
+   FOOTER (match rest of site)
+========================================================= */
+
+.page-frameshift .footer{
+  padding: 56px var(--side-padding);
+}
+
+.page-frameshift .footer-text{
+  margin: 0;
+}
+
+
+
+/* =========================================================
+   SCROLL TOP
+========================================================= */
+
+.page-frameshift .scroll-top{
+  position: fixed;
+
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+
+  z-index: 9999;
+
+  width: 44px;
+  height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(232,220,196,0.22);
+  background: rgba(0,0,0,0.55);
+
+  backdrop-filter: blur(6px);
+
+  color: rgba(232,220,196,0.85);
+
+  font-size: 18px;
+  line-height: 1;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.page-frameshift .scroll-top.is-visible{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:1024px){
+
+.page-frameshift .frameshift-hero{
+grid-template-columns: 1fr;
+}
+
+.page-frameshift .frameshift-cards{
+grid-template-columns: 1fr;
+}
+
+}
+
+
+@media (max-width:768px){
+
+.page-frameshift .frameshift-shell{
+padding-left:24px;
+padding-right:24px;
+}
+
+}
+
+
+@media (min-width:1100px){
+
+.page-frameshift .frames-layout{
+grid-template-columns:2fr 1fr;
+align-items:stretch;
+}
+
+.page-frameshift .frames-small{
+grid-template-columns:1fr;
+}
+
+}

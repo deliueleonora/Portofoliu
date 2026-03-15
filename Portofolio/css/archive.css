@@ -1,0 +1,193 @@
+:root{
+  --gap: 18px;                 /* distanta intre carduri */
+  --row: 10px;                 /* unitate pentru masonry (mai mic = mai precis) */
+
+  --border: rgba(232,220,196,0.10);
+  --borderHover: rgba(232,220,196,0.28);
+  --cardBg: rgba(0,0,0,0.10);
+
+  --colMin: 200px;             /* <<< CONTROL “CAT DE MARI” SUNT THUMB-urile */
+  /* incearca 240px / 260px / 300px dupa gust */
+}
+
+.archive{
+  padding-top: 140px;
+ 
+  
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+
+.archive-title{
+  font-family: var(--font-main);
+  font-size: 10px;
+   padding-left: var(--side-padding);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(232, 220, 196, 0.55);
+  margin-bottom: 40px;
+}
+
+/* ===== EDITORIAL MASONRY (GRID + JS) ===== */
+.archive-grid{
+  display: grid;
+
+  /* in loc de 6 coloane fixe, facem coloane cu latime minima => item-uri mai mari */
+  grid-template-columns: repeat(auto-fit, minmax(var(--colMin), 1fr));
+
+  gap: var(--gap);
+  grid-auto-rows: var(--row);
+  grid-auto-flow: dense;
+  align-items: start;
+}
+
+/* ===== CARD ===== */
+.archive-card{
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--cardBg);
+  overflow: hidden;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+
+  /* default: ocupa 1 coloana */
+  grid-column: span 1;
+}
+
+.archive-card:hover{
+  transform: translateY(-3px);
+  border-color: var(--borderHover);
+  background: rgba(0,0,0,0.16);
+}
+
+/* ===== MEDIA (fara crop) ===== */
+.archive-media{ width: 100%; }
+
+.archive-media img,
+.archive-media video,
+.archive-media iframe{
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+}
+.archive-media iframe{
+  aspect-ratio: 16 / 9;
+}
+
+
+
+
+/* ===== CONTROL MARIME (FARA HTML CHANGES) =====
+   Tu folosesti w2/w3 in HTML -> le mapam la span-uri.
+*/
+.archive-card.w2{ grid-column: span 2; }
+.archive-card.w3{ grid-column: span 3; }
+
+/* optional: daca vrei si w4 pe viitor */
+.archive-card.w4{ grid-column: span 4; }
+
+/* ===== Footer (match home) ===== */
+.archive .footer{
+  padding: 56px var(--side-padding);
+}
+
+.archive .footer-text{
+  margin: 0;
+} 
+
+.archive-media iframe{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: 0;
+  pointer-events: none;
+}
+
+
+
+/* ===== Scroll-to-top safety (in case anything overrides) ===== */
+.archive .scroll-top{
+  position: fixed;
+  right: 32px;
+  left: auto;
+  bottom: 32px;
+  z-index: 1200;
+}
+/* Scroll to top — hard reset + look consistent */
+.archive .scroll-top{
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 9999;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  border: 1px solid rgba(232,220,196,0.22);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+
+  color: rgba(232,220,196,0.85);
+  text-decoration: none;
+
+  /* kill inherited typography */
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.archive .scroll-top.is-visible{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.archive .scroll-top:hover{
+  background: rgba(0,0,0,0.72);
+  border-color: rgba(232,220,196,0.38);
+}
+
+.archive .scroll-top:focus-visible{
+  outline: 2px solid rgba(232,220,196,0.55);
+  outline-offset: 3px;
+}
+
+
+
+/* ===== Responsive tuning ===== */
+@media (max-width: 1200px){
+  :root{ --colMin: 240px; }
+  .archive-card.w3{ grid-column: span 2; } /* sa nu rupa layout-ul pe ecrane mai mici */
+}
+
+@media (max-width: 900px){
+  :root{ --colMin: 220px; }
+  .archive-card.w2{ grid-column: span 2; }
+  .archive-card.w3{ grid-column: span 2; }
+}
+
+@media (max-width: 600px){
+  .archive{
+    padding-top: 120px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 96px;
+  }
+  :root{ --colMin: 180px; }
+  .archive-card.w2{ grid-column: span 2; }
+  .archive-card.w3{ grid-column: span 2; }
+}

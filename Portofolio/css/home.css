@@ -1,0 +1,423 @@
+/* =========================
+   HERO — CLEAN STUDIO STYLE
+   (paste this over your current hero styles)
+========================= */
+
+.hero {
+  min-height: 100vh;
+  padding-top: 140px; /* header fixed */
+  padding-bottom: 120px;
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* Title */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  font-family: var(--font-main);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+/* First line (small, calm) */
+.hero-line:nth-child(1) {
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(232, 220, 196, 0.72); /* toned down */
+  text-transform: lowercase;
+
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.15s;
+}
+
+/* Main word (your signature) */
+.hero-portfolio {
+  font-family: var(--font-logo);
+  font-size: clamp(84px, 14vw, 180px);
+  font-weight: 400;
+  line-height: 0.78;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+
+  color: var(--text); /* no animated gradient */
+  margin-top: -0.05em;
+
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.28s;
+}
+
+/* Subtitle */
+.hero-subtitle {
+
+  margin-top: 0;
+  margin-bottom: 64px; /* spațiu controlat până la rolling */
+
+  max-width: 64ch;
+
+  font-family: var(--font-main);
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+
+  position: relative;
+  z-index: 1;
+
+  opacity: 0;
+  transform: translateY(14px);
+  animation: heroUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.42s;
+}
+
+/* Small accent line (minimal, not glowing) */
+.hero-subtitle::before {
+
+  display: none;
+
+}
+
+/* One clean keyframe */
+@keyframes heroUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 96px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero::before {
+    width: 420px;
+    height: 420px;
+    right: -30%;
+    top: 14%;
+    filter: blur(80px);
+  }
+
+  .hero-subtitle {
+    margin-top: 34px;
+  }
+}
+
+
+/* LOGO REVEAL — blur-only (doesn’t block hover) */
+@keyframes logoReveal {
+  0% {
+    filter: blur(10px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+
+/* FADE IN - general */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* =========================
+   HERO — BOTTOM ROLLING (CLEAN, NO CONFLICTS)
+========================= */
+
+.hero--bottom-title{
+  /* facem layout-ul predictibil */
+  display: flex;
+  flex-direction: column;
+
+  /* rolling chiar la baza ecranului (nu la 120px mai sus) */
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+.hero--bottom-title .hero-subtitle{
+  margin-top: auto;
+
+  /* spacing editorial, respirabil */
+  margin-bottom: clamp(32px, 5vh, 72px);
+  letter-spacing: 0.03em;
+  max-width: 60ch;
+}
+
+
+/* Banda edge-to-edge + lipită jos */
+.hero-title--bottom{
+  margin: 0;
+
+  /* împinge rolling-ul la fundul containerului */
+  margin-top: 0;
+
+  /* edge-to-edge: sparge padding-ul hero-ului */
+  margin-left: calc(var(--side-padding) * -1);
+  margin-right: calc(var(--side-padding) * -1);
+  width: calc(100% + (var(--side-padding) * 2));
+}
+
+/* Banda: fade la margini + linie editorială */
+.rolling--designer{
+  width: 100%;
+  overflow: hidden;
+
+  border-top: 1px solid rgba(168,148,125,.16);
+  padding-top: 14px;
+  padding-bottom: 6px;
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+
+  position: relative;
+}
+
+/* micro-noise (subtil) */
+.rolling--designer::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.06;
+  mix-blend-mode: overlay;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(232,220,196,.35) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(91,154,139,.35) 0 1px, transparent 2px),
+    radial-gradient(circle at 40% 80%, rgba(168,148,125,.35) 0 1px, transparent 2px);
+  background-size: 140px 140px, 180px 180px, 220px 220px;
+  background-position: 0 0, 40px 80px, 120px 20px;
+}
+
+.rolling-track{
+  display: flex;
+  align-items: baseline;
+  gap: clamp(48px, 7vw, 120px);
+
+  width: max-content;
+  will-change: transform;
+  animation: rolling 22s linear infinite;
+}
+
+.hero:hover .rolling-track{
+  animation-duration: 16s;
+}
+
+
+
+/* =========================
+   HERO — EDITORIAL (WELCOME)
+========================= */
+
+.hero--editorial{
+  min-height: 100vh;
+  padding-top: 140px;
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+  padding-bottom: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.hero--editorial .hero-inner{
+    width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.hero--editorial .hero-headline{
+  font-family: var(--font-logo);
+  font-size: clamp(96px, 19vw, 200px);
+  font-weight: 860;
+
+  letter-spacing: -0.045em;
+  line-height: 0.80;
+
+  display: inline-block;
+  margin: 0 auto 24px auto;
+
+  /* expresiv, dar stabil */
+  transform: scaleX(1.08) translateX(0.015em);
+
+  color: var(--text);
+}
+
+
+
+.hero--editorial .hero-strapline{
+  font-family: var(--font-main);
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(232, 220, 196, 0.70);
+  margin: 0 0 18px 0;
+}
+
+.hero--editorial .hero-typing{
+  margin-top: 3px;
+
+  font-family: var(--font-main);
+  font-size: 24px;
+  letter-spacing: 0.10em;
+  text-transform: lowercase;
+
+  color: rgba(232, 220, 196, 0.45);
+  text-align: center;
+   min-height: 34px; /* 👈 IMPORTANT */
+}
+
+
+/* =========================
+   HERO — SMALL ROLLING BAND (clean + stronger)
+========================= */
+
+.hero-band{
+  padding: 24px var(--side-padding) 0;
+  margin-top: 0;
+}
+
+.rolling--small{
+  width: 100%;
+  overflow: hidden;
+
+  padding: 18px 0;
+
+  border-top: 1px solid rgba(168,148,125,.22);
+
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+.rolling--small .rolling-track{
+  display: flex;
+  align-items: baseline;
+  gap: clamp(48px, 7vw, 120px);
+
+  width: max-content;
+  will-change: transform;
+
+  animation: rolling 6s linear infinite;
+}
+
+
+.rolling--small .rolling-word{
+  font-family: var(--font-main);  /* important */
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 800;
+
+  letter-spacing: -0.02em;
+  text-transform: none;
+
+  color: rgba(232,220,196,.65);
+  text-shadow: 0 0 12px rgba(232,220,196,.06); /* more visible */
+  line-height: 1;
+
+  padding-right: 64px;
+}
+
+.hero-band--divider {
+  padding: 60px 0;
+}
+
+/* =========================================================
+   SCROLL TOP
+========================================================= */
+
+.scroll-top{
+  position: fixed;
+
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+
+  z-index: 9999;
+
+  width: 44px;
+  height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(232,220,196,0.22);
+  background: rgba(0,0,0,0.55);
+
+  backdrop-filter: blur(6px);
+
+  color: rgba(232,220,196,0.85);
+
+  font-size: 18px;
+  line-height: 1;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.scroll-top.is-visible{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+@keyframes rolling{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+

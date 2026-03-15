@@ -1,0 +1,423 @@
+/* =========================================================
+   TIKO — page specific (no global project css)
+========================================================= */
+
+.page-tiko .tiko-shell{
+  padding-top: 80px;
+
+
+  /* elimină orice centrare */
+  margin: 0;
+  max-width: none;
+}
+
+
+/* ---------- HERO / editorial grid ---------- */
+.page-tiko .tiko-hero{
+  display: grid;
+grid-template-columns: 300px 310px minmax(520px, 1fr);
+gap: 72px;
+  align-items: start;
+}
+
+
+
+.page-tiko .tiko-title{
+  margin: 0 0 18px 0;
+  font-family: var(--font-headings);
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: rgba(232,220,196,0.92);
+}
+
+.page-tiko .tiko-meta{
+  font-family: var(--font-main);
+  font-size: 12px;
+  line-height: 1.65;
+  letter-spacing: 0.16em;
+  color: rgba(232,220,196,0.55);
+
+    display: flex;
+  flex-direction: column;
+  gap: 18px;   /* controlezi spațiul de aici */
+}
+
+.page-tiko .tiko-text{
+  font-family: var(--font-main);
+  color: rgba(232,220,196,0.82);
+  max-width: 52ch;
+}
+.page-tiko .tiko-text p{
+  margin: 0 0 14px 0;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+.page-tiko .tiko-links{
+  margin-top: 28px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.page-tiko .tiko-links a{
+  font-family: var(--font-main);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-secondary);
+  opacity: 0.85;
+  text-decoration: none;
+}
+.page-tiko .tiko-links a:hover{ opacity: 1; }
+
+.page-tiko .tiko-right img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(232,220,196,0.16);
+  background: rgba(232,220,196,0.02);
+}
+
+
+
+/* ---------- Sections ---------- */
+.page-tiko .tiko-section{
+  margin-top: 50px;
+}
+
+.page-tiko .tiko-section-title{
+  margin: 0 0 18px 0;
+  font-family: var(--font-main);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(232,220,196,0.70);
+}
+
+/* ---------- Video ---------- */
+.page-tiko .tiko-video-wrap{
+  width: min(90vw, 1100px);
+  margin: 0 auto; /* keep left axis, not centered */
+}
+.page-tiko .tiko-video video{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;   /* asta forțează proporția înainte de play */
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(232,220,196,0.16);
+  background: rgba(0,0,0,0.4);
+}
+
+
+/* ---------- Gallery (2-col like reference) ---------- */
+.page-tiko .tiko-gallery{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.page-tiko .tiko-gallery img{
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* toate devin identice */
+  object-fit: cover;     /* taie elegant surplusul */
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(232,220,196,0.16);
+}
+
+/* ---------- Breakdown cards ---------- */
+
+
+/* ===============================
+   CHARACTER DESIGN CAROUSEL
+================================ */
+
+.page-tiko .tiko-carousel{
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(232,220,196,0.16);
+  background: rgba(0,0,0,0.25);
+}
+
+.page-tiko .tiko-carousel-viewport{
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  display: flex;
+}
+
+.page-tiko .tiko-carousel-track{
+  display: flex;
+  transition: transform 320ms ease;
+  width: 100%;
+  height: 100%;
+}
+
+.page-tiko .tiko-carousel-track img{
+  width: 100%;
+  flex: 0 0 100%;
+  display: block;
+  object-fit: contain; 
+  background: #fff;  
+}
+
+/* arrows */
+
+.page-tiko .tiko-carousel-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 32px;                 /* mai mic */
+  height: 32px;
+  border-radius: 50%;
+  
+  border: 1px solid rgba(232,220,196,0.18);
+  background: rgba(0,0,0,0.35); /* mai transparent */
+  
+  color: rgba(232,220,196,0.75);
+  font-size: 16px;             /* săgeată mai subtilă */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0.7;
+  transition: all 180ms ease;
+}
+
+.page-tiko .tiko-carousel-btn:hover{
+  opacity: 1;
+  background: rgba(0,0,0,0.6);
+  border-color: rgba(232,220,196,0.35);
+}
+
+.page-tiko .tiko-carousel-btn.prev{
+  left: 14px;
+}
+
+.page-tiko .tiko-carousel-btn.next{
+  right: 14px;
+}
+
+
+
+
+
+
+.page-tiko .tiko-cards{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.page-tiko .tiko-card{
+  border: 1px solid rgba(232,220,196,0.16);
+  border-radius: 16px;
+  background: rgba(232,220,196,0.02);
+  padding: 22px;
+}
+
+.page-tiko .tiko-card h3{
+  margin: 0 0 16px 0;
+  font-family: var(--font-main);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(232,220,196,0.82);
+}
+
+.page-tiko .tiko-card p{
+  margin: 0 0 16px 0;
+  font-family: var(--font-main);
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(232,220,196,0.62);
+}
+
+.page-tiko .tiko-card-media img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(232,220,196,0.16);
+}
+
+
+.page-tiko .tiko-card-video{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.tiko-card-media .tiko-carousel-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;           /* fill the parent card */
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.25);
+  display: block;         /* remove flex centering */
+}
+
+.tiko-card-media .tiko-carousel-viewport iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;      /* fill container without leaving gaps */
+  transform: scale(1.05); /* zoom 5% */
+  pointer-events: auto;   /* optional, allow interactions */
+}
+
+
+
+
+
+
+/* ---------- Outro + pagination ---------- */
+.page-tiko .tiko-outro{
+  margin-top: 5px;
+  text-align: center;
+}
+.page-tiko .tiko-outro p{
+  margin: 0 auto;
+  max-width: 84ch;
+  font-family: var(--font-main);
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 0.015em;
+  color: rgba(232,220,196,0.62);
+}
+.page-tiko main{
+  padding-bottom: 30px;
+}
+
+/* ===== Footer (match home) ===== */
+.page-tiko .footer{
+  padding: 56px var(--side-padding);
+}
+
+.page-tiko .footer-text{
+  margin: 0;
+}
+
+
+
+/* ===== Scroll-to-top safety (in case anything overrides) ===== */
+.page-tiko .scroll-top{
+  position: fixed;
+  right: 32px;
+  left: auto;
+  bottom: 32px;
+  z-index: 1200;
+}
+/* Scroll to top — hard reset + look consistent */
+.page-tiko .scroll-top{
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 9999;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  border: 1px solid rgba(232,220,196,0.22);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+
+  color: rgba(232,220,196,0.85);
+  text-decoration: none;
+
+  /* kill inherited typography */
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.page-tiko .scroll-top.is-visible{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.page-tiko .scroll-top:hover{
+  background: rgba(0,0,0,0.72);
+  border-color: rgba(232,220,196,0.38);
+}
+
+.page-tiko .scroll-top:focus-visible{
+  outline: 2px solid rgba(232,220,196,0.55);
+  outline-offset: 3px;
+}
+
+.tiko-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.tiko-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 2;
+  pointer-events: all; /* must capture hover */
+}
+
+
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px){
+  .page-tiko .tiko-hero{
+    grid-template-columns: 1fr;
+  }
+  .page-tiko .tiko-gallery{
+    grid-template-columns: 1fr;
+  }
+  .page-tiko .tiko-cards{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px){
+  .page-tiko .tiko-shell{
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 120px;
+  }
+}

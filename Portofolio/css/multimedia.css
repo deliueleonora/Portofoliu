@@ -1,0 +1,406 @@
+/* =========================================================
+   MULTIMEDIA — page specific
+========================================================= */
+
+.page-multimedia .multimedia-shell {
+  padding-top: 80px;
+  margin: 0;
+  max-width: none;
+}
+
+/* ---------- HERO ---------- */
+
+.page-multimedia .multimedia-hero {
+  display: grid;
+  grid-template-columns: 300px 310px minmax(520px, 1fr);
+  gap: 84px;
+  align-items: start;
+}
+
+.page-multimedia .multimedia-title {
+  margin: 0 0 18px 0;
+  font-family: var(--font-headings);
+  font-size: clamp(48px, 6vw, 62px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: rgba(232,220,196,0.92);
+}
+
+.page-multimedia .multimedia-meta {
+  font-family: var(--font-main);
+  font-size: 12px;
+  line-height: 1.65;
+  letter-spacing: 0.16em;
+  color: rgba(232,220,196,0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.page-multimedia .multimedia-text {
+  font-family: var(--font-main);
+  color: rgba(232,220,196,0.82);
+  max-width: 52ch;
+}
+
+.page-multimedia .multimedia-text p {
+  margin: 0 0 14px 0;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+.page-multimedia .multimedia-links {
+  margin-top: 28px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.page-multimedia .multimedia-links a {
+  font-family: var(--font-main);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-secondary);
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+.page-multimedia .multimedia-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.page-multimedia .multimedia-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(232,220,196,0.16);
+  background: rgba(232,220,196,0.02);
+}
+
+/* ---------- VIDEO FULL WIDTH ---------- */
+
+.page-multimedia .multimedia-video-wrap {
+  position: relative;
+  width: 100%;
+  height: 77vh;
+  overflow: hidden;
+  border-radius: 18px;
+  background: transparent;  /* ← schimbă din rgba(0,0,0,0.25) în transparent */
+}
+
+.page-multimedia .multimedia-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.page-multimedia .multimedia-video video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid rgba(232,220,196,0.18);
+  background: rgba(0,0,0,0.5);
+}
+
+/* ---------- SECTION ---------- */
+
+.page-multimedia .multimedia-section {
+  margin-top: 50px;
+}
+
+.page-multimedia .multimedia-section-title {
+  margin-bottom: 28px;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(232,220,196,0.70);
+}
+
+/* ---------- CARDS ---------- */
+
+.page-multimedia .multimedia-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.page-multimedia .multimedia-card {
+  padding: 40px 48px;
+  border-radius: 22px;
+  background: #0b141b;
+  border: 1px solid rgba(232,220,196,0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.page-multimedia .multimedia-card h3 {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.page-multimedia .multimedia-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(232,220,196,0.62);
+}
+
+/* ---------- CARD CAROUSEL ---------- */
+
+.page-multimedia .card-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(232,220,196,0.14);
+  height: 40vh;
+  width: calc(100% + 36px);
+  margin-left: -18px;
+  margin-right: -18px;
+  margin-bottom: 30px;
+}
+
+.page-multimedia .carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 400ms ease;
+}
+
+.page-multimedia .carousel-track iframe {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  transform: scale(1.083);        /* zoom level — increase to zoom more */
+  transform-origin: center center;
+  pointer-events: none;         /* prevents scroll/click interference */
+}
+
+.page-multimedia .carousel-track .carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* background slides — zoomed, no interaction */
+.page-multimedia .carousel-track .carousel-slide:not(.has-controls) iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  transform: scale(1.083);
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+/* control slides — no zoom, fully clickable */
+.page-multimedia .carousel-track .carousel-slide.has-controls iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% / 0.95);
+  height: calc(100% / 0.95);
+  transform: translate(-50%, -50%) scale(1.03);
+  transform-origin: center center;
+  border: 0;
+  pointer-events: auto;
+}
+
+
+
+.page-multimedia .carousel-track video,
+.page-multimedia .carousel-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  object-fit: cover;
+}
+
+/* ---------- CAROUSEL BUTTONS ---------- */
+
+.page-multimedia .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(232,220,196,0.18);
+  background: rgba(0,0,0,0.35);
+  color: rgba(232,220,196,0.75);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0.7;
+  transition: all 180ms ease;
+}
+
+.page-multimedia .carousel-btn:hover {
+  opacity: 1;
+  background: rgba(0,0,0,0.6);
+  border-color: rgba(232,220,196,0.35);
+}
+
+.page-multimedia .carousel-btn.prev { left: 14px; }
+.page-multimedia .carousel-btn.next { right: 14px; }
+
+/* ---------- SELECTED FRAMES ---------- */
+
+.page-multimedia .multimedia-frames {
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+}
+
+.page-multimedia .frames-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.page-multimedia .frame-large img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid rgba(232,220,196,0.14);
+}
+
+.page-multimedia .frames-small {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.page-multimedia .frames-small img {
+  width: 100%;
+  height: 98%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid rgba(232,220,196,0.14);
+}
+
+/* ---------- OUTRO ---------- */
+
+.page-multimedia .multimedia-outro {
+  max-width: 100ch;
+  margin: 40px auto 80px;
+}
+
+.page-multimedia .multimedia-outro p {
+  text-align: justify;
+  font-size: 13px;
+  line-height: 1.9;
+  color: rgba(232,220,196,0.62);
+}
+
+/* ---------- FOOTER ---------- */
+
+.page-multimedia .footer {
+  padding: 56px var(--side-padding);
+}
+
+.page-multimedia .footer-text {
+  margin: 0;
+}
+
+/* ---------- SCROLL TO TOP ---------- */
+
+.page-multimedia .scroll-top {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 9999;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(232,220,196,0.22);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  color: rgba(232,220,196,0.85);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease,
+              background 180ms ease, border-color 180ms ease;
+}
+
+.page-multimedia .scroll-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.page-multimedia .scroll-top:hover {
+  background: rgba(0,0,0,0.72);
+  border-color: rgba(232,220,196,0.38);
+}
+
+.page-multimedia .scroll-top:focus-visible {
+  outline: 2px solid rgba(232,220,196,0.55);
+  outline-offset: 3px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1024px) {
+  .page-multimedia .multimedia-hero {
+    grid-template-columns: 1fr;
+  }
+  .page-multimedia .multimedia-cards {
+    grid-template-columns: 1fr;
+  }
+  .page-multimedia .card-carousel {
+    height: 30vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-multimedia .multimedia-shell {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .page-multimedia .card-carousel {
+    height: 25vh;
+  }
+}
+
+@media (min-width: 1100px) {
+  .page-multimedia .frames-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: stretch;
+  }
+  .page-multimedia .frames-small {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,27 @@
+:root {
+  /* Fundal și text */
+  --bg: #0F1419;          /* Charcoal Night - fundal principal */
+  --bg-secondary: #2A4858;/* Slate Blue - fundal secundar */
+  --text: #E8DCC4;        /* Warm Beige - text principal și highlight-uri */
+  --muted: #A8947D;       /* Taupe - text secundar, elemente subtile */
+
+  /* Accent & culori speciale */
+  --accent-primary: #5B9A8B;   /* Sage Teal - accent principal */
+  --accent-secondary: #D4887C; /* Terracotta Blush - accent secundar */
+  --primary-color: #E8DCC4;    /* Pentru logo sau elemente principale */
+
+  /* Gradient-uri armonioase */
+  --gradient-1: linear-gradient(135deg, #5B9A8B 0%, #2A4858 100%);
+  --gradient-2: linear-gradient(135deg, #D4887C 0%, #5B9A8B 100%);
+  --gradient-3: linear-gradient(135deg, #2A4858 0%, #0F1419 100%);
+
+  /* Fonturi */
+  --font-main: 'IBM Plex Mono', monospace;
+  --font-logo: 'Fredoka', sans-serif;
+  --font-headings: 'Space Grotesk', sans-serif;
+
+  /* Easing pentru animații */
+  --ease: cubic-bezier(0.6, 0.01, 0.05, 0.95);
+}
+
+
